@@ -15,18 +15,6 @@ function About() {
       <div className="absolute right-[-190px] top-1/2 -translate-y-1/2 w-[480px] h-[480px] border border-green-500/35 rounded-full"></div>
       <div className="absolute right-[-120px] top-1/2 -translate-y-1/2 w-[340px] h-[340px] bg-green-500/8 rounded-full"></div>
 
-      {/* Topo */}
-      <div className="absolute top-8 left-8 md:left-12 z-20 flex gap-1.5">
-        <span className="w-9 h-2 bg-green-500 rounded-full"></span>
-        <span className="w-9 h-2 bg-sky-400 rounded-full"></span>
-        <span className="w-9 h-2 bg-blue-950 rounded-full"></span>
-      </div>
-
-      <p className="absolute top-8 right-8 md:right-12 z-20 text-sm md:text-base text-blue-950 font-medium">
-        apresentação comercial{" "}
-        <span className="text-green-500 font-bold">2026</span>
-      </p>
-
       {/* Pontinhos */}
       <div className="absolute top-40 right-24 hidden md:grid grid-cols-4 gap-2">
         {Array.from({ length: 16 }).map((_, index) => (
@@ -93,18 +81,6 @@ function About() {
               — pilares que fazem da Fortiva Cred uma marca de referência no
               mercado de crédito.
             </p>
-          </div>
-
-          <div
-            data-aos="fade-up"
-            data-aos-delay="300"
-            className="mt-16 flex justify-center lg:justify-end"
-          >
-            <img
-              src="/fortiva-cred.png"
-              alt="Fortiva Cred"
-              className="w-32 md:w-40"
-            />
           </div>
         </div>
       </div>

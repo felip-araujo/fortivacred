@@ -11,18 +11,6 @@ function Results() {
       <div className="absolute -bottom-48 -right-48 w-[560px] h-[560px] border border-green-400/25 rounded-full"></div>
       <div className="absolute -bottom-32 -right-32 w-[420px] h-[420px] border border-green-400/20 rounded-full"></div>
 
-      {/* Topo */}
-      <div className="absolute top-8 left-8 md:left-12 z-20 flex gap-1.5">
-        <span className="w-9 h-2 bg-green-500 rounded-full"></span>
-        <span className="w-9 h-2 bg-sky-400 rounded-full"></span>
-        <span className="w-9 h-2 bg-white rounded-full"></span>
-      </div>
-
-      <p className="absolute top-8 right-8 md:right-12 z-20 text-sm md:text-base text-white font-medium">
-        apresentação comercial{" "}
-        <span className="text-green-400 font-bold">2026</span>
-      </p>
-
       {/* Pontinhos */}
       <div className="absolute top-36 right-24 hidden md:grid grid-cols-4 gap-2">
         {Array.from({ length: 16 }).map((_, i) => (
@@ -81,9 +69,7 @@ function Results() {
               className="bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-6"
             >
               <p className="text-4xl font-extrabold text-green-400">360°</p>
-              <p className="mt-2 text-white font-semibold">
-                atuação completa
-              </p>
+              <p className="mt-2 text-white font-semibold">atuação completa</p>
               <p className="mt-2 text-white/65 text-sm">
                 Crédito, seguros, consórcios e soluções financeiras.
               </p>
@@ -95,20 +81,14 @@ function Results() {
               className="bg-white/10 backdrop-blur border border-white/10 rounded-2xl p-6"
             >
               <p className="text-4xl font-extrabold text-green-400">BR</p>
-              <p className="mt-2 text-white font-semibold">
-                expansão nacional
-              </p>
+              <p className="mt-2 text-white font-semibold">expansão nacional</p>
               <p className="mt-2 text-white/65 text-sm">
                 Modelo preparado para escalar com consistência.
               </p>
             </div>
           </div>
 
-          <div
-            data-aos="fade-up"
-            data-aos-delay="600"
-            className="mt-12"
-          >
+          <div data-aos="fade-up" data-aos-delay="600" className="mt-12">
             <a
               href="#contato"
               className="inline-flex items-center justify-center bg-green-500 text-white font-bold px-8 py-4 rounded-full shadow-lg shadow-green-500/25 hover:bg-green-600 hover:-translate-y-1 transition-all duration-300"

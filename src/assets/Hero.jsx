@@ -42,12 +42,12 @@ function Hero() {
           <h1 className="font-extrabold leading-[0.95] tracking-tight">
             
 
-            <span className="block text-blue-950 text-5xl md:text-7xl">
+            {/* <span className="block text-blue-950 text-5xl md:text-7xl">
               Somos a
-            </span>
+            </span> */}
 
             <span className="block text-blue-950 text-6xl md:text-8xl">
-              Fortiva{" "}
+              Somos a Fortiva{" "}
               <span className="text-green-500">Cred.</span>
             </span>
           </h1>

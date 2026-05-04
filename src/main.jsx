@@ -20,9 +20,9 @@ AOS.init({
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Hero />
-    <QuemSomos/>
-    <Services />
-    <MarketData />
     <Results />
-  </StrictMode>
+    <MarketData />
+    <QuemSomos />
+    <Services />
+  </StrictMode>,
 );

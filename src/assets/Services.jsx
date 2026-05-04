@@ -25,28 +25,22 @@ function Services() {
       <div className="absolute bottom-[-200px] right-[-200px] w-[520px] h-[520px] border border-green-500/30 rounded-full"></div>
       <div className="absolute bottom-[-140px] right-[-140px] w-[400px] h-[400px] border border-green-500/25 rounded-full"></div>
 
-      {/* Topo */}
-      <div className="absolute top-8 left-8 md:left-12 z-20 flex gap-1.5">
-        <span className="w-9 h-2 bg-green-500 rounded-full"></span>
-        <span className="w-9 h-2 bg-sky-400 rounded-full"></span>
-        <span className="w-9 h-2 bg-blue-950 rounded-full"></span>
-      </div>
-
-      <p className="absolute top-8 right-8 md:right-12 z-20 text-sm md:text-base text-blue-950 font-medium">
-        apresentação comercial{" "}
-        <span className="text-green-500 font-bold">2026</span>
-      </p>
-
       {/* Pontinhos */}
       <div className="absolute top-36 right-24 hidden md:grid grid-cols-4 gap-2">
         {Array.from({ length: 16 }).map((_, i) => (
-          <span key={i} className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+          <span
+            key={i}
+            className="w-1.5 h-1.5 bg-green-500 rounded-full"
+          ></span>
         ))}
       </div>
 
       <div className="absolute bottom-20 left-10 hidden md:grid grid-cols-4 gap-2">
         {Array.from({ length: 12 }).map((_, i) => (
-          <span key={i} className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+          <span
+            key={i}
+            className="w-1.5 h-1.5 bg-green-500 rounded-full"
+          ></span>
         ))}
       </div>
 
@@ -56,8 +50,7 @@ function Services() {
           data-aos="fade-up"
           className="text-4xl md:text-6xl font-extrabold text-blue-950 mb-20"
         >
-          Conheça nossos{" "}
-          <span className="font-black">Serviços</span>
+          Conheça nossos <span className="font-black">Serviços</span>
         </h2>
 
         {/* Grid */}
@@ -71,7 +64,7 @@ function Services() {
             >
               {/* Ícone placeholder */}
               <div className="w-14 h-14 mb-4 border-2 border-blue-950 rounded-xl flex items-center justify-center text-blue-950 font-bold">
-                +
+                -
               </div>
 
               <p className="text-blue-950 font-medium text-sm md:text-base leading-tight">
@@ -85,18 +78,12 @@ function Services() {
         </div>
 
         {/* CTA */}
-        <div
-          data-aos="fade-up"
-          data-aos-delay="300"
-          className="mt-20"
-        >
+        <div data-aos="fade-up" data-aos-delay="300" className="mt-20">
           <div className="inline-flex items-center gap-3 bg-blue-950 text-white px-6 py-3 rounded-md shadow-lg">
             <span className="text-green-400 text-xl">✦</span>
             <p className="font-semibold">
               Mais de{" "}
-              <span className="text-green-400 font-bold">
-                250 serviços
-              </span>
+              <span className="text-green-400 font-bold">250 serviços</span>
             </p>
           </div>
         </div>
