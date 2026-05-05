@@ -1,13 +1,25 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faShieldAlt,
+  faMoneyBillWave,
+  faHandHoldingDollar,
+  faCar,
+  faCoins,
+  faSyncAlt,
+  faHeartPulse,
+  faTractor,
+} from "@fortawesome/free-solid-svg-icons";
+
 function Services() {
   const services = [
-    { title: "Seguros" },
-    { title: "Empréstimo Consignado" },
-    { title: "Empréstimo Pessoal" },
-    { title: "Financiamento de Veículos e Imóveis" },
-    { title: "Consórcio Tradicional e Contemplado" },
-    { title: "Refinanciamento de Veículos e Imóveis" },
-    { title: "Plano de Saúde" },
-    { title: "Mercado Agro" },
+    { title: "Seguros", icon: faShieldAlt },
+    { title: "Empréstimo Consignado", icon: faMoneyBillWave },
+    { title: "Empréstimo Pessoal", icon: faHandHoldingDollar },
+    { title: "Financiamento de Veículos e Imóveis", icon: faCar },
+    { title: "Consórcio Tradicional e Contemplado", icon: faCoins },
+    { title: "Refinanciamento de Veículos e Imóveis", icon: faSyncAlt },
+    { title: "Plano de Saúde", icon: faHeartPulse },
+    { title: "Mercado Agro", icon: faTractor },
   ];
 
   return (
@@ -25,25 +37,6 @@ function Services() {
       <div className="absolute bottom-[-200px] right-[-200px] w-[520px] h-[520px] border border-green-500/30 rounded-full"></div>
       <div className="absolute bottom-[-140px] right-[-140px] w-[400px] h-[400px] border border-green-500/25 rounded-full"></div>
 
-      {/* Pontinhos */}
-      <div className="absolute top-36 right-24 hidden md:grid grid-cols-4 gap-2">
-        {Array.from({ length: 16 }).map((_, i) => (
-          <span
-            key={i}
-            className="w-1.5 h-1.5 bg-green-500 rounded-full"
-          ></span>
-        ))}
-      </div>
-
-      <div className="absolute bottom-20 left-10 hidden md:grid grid-cols-4 gap-2">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <span
-            key={i}
-            className="w-1.5 h-1.5 bg-green-500 rounded-full"
-          ></span>
-        ))}
-      </div>
-
       {/* Conteúdo */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
         <h2
@@ -60,11 +53,11 @@ function Services() {
               key={index}
               data-aos="fade-up"
               data-aos-delay={index * 100}
-              className="flex flex-col items-center text-center"
+              className="flex flex-col items-center text-center group"
             >
-              {/* Ícone placeholder */}
-              <div className="w-14 h-14 mb-4 border-2 border-blue-950 rounded-xl flex items-center justify-center text-blue-950 font-bold">
-                -
+              {/* Ícone */}
+              <div className="w-14 h-14 mb-4 border-2 border-blue-950 rounded-xl flex items-center justify-center text-blue-950 text-xl group-hover:bg-green-500 group-hover:text-white group-hover:border-green-500 transition-all duration-300">
+                <FontAwesomeIcon icon={service.icon} />
               </div>
 
               <p className="text-blue-950 font-medium text-sm md:text-base leading-tight">
@@ -72,7 +65,7 @@ function Services() {
               </p>
 
               {/* Linha */}
-              <div className="mt-4 h-[1px] bg-blue-950/20 w-full max-w-[120px]"></div>
+              <div className="mt-4 h-[1px] bg-blue-950/20 w-full max-w-[120px] group-hover:bg-green-500 transition-all"></div>
             </div>
           ))}
         </div>
