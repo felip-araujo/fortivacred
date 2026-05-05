@@ -5,7 +5,7 @@ function About() {
       className="relative min-h-screen bg-white flex items-center overflow-hidden py-24"
     >
       {/* Fundo */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_50%,rgba(34,197,94,0.10),transparent_28%),linear-gradient(135deg,#ffffff_0%,#f8fafc_60%,#eef6ff_100%)]"></div>
+      <div className="absolute inset-0 bg-gray-100"></div>
 
       {/* Quadriculado fino */}
       <div className="absolute inset-0 opacity-[0.18] bg-[linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:42px_42px]"></div>

@@ -10,6 +10,7 @@ import QuemSomos from "./assets/About.jsx";
 import Services from "./assets/Services.jsx";
 import MarketData from "./assets/Market.jsx";
 import Results from "./assets/Results.jsx";
+import BusinessModel from "./assets/BusinessModel.jsx";
 
 AOS.init({
   duration: 1000,
@@ -24,5 +25,6 @@ createRoot(document.getElementById("root")).render(
     <MarketData />
     <QuemSomos />
     <Services />
+    <BusinessModel />
   </StrictMode>,
 );
