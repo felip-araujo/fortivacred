@@ -1,6 +1,6 @@
 function Results() {
   return (
-    <section className="relative min-h-screen bg-blue-950 flex items-center overflow-hidden py-24">
+    <section id="produtos" className="relative min-h-screen bg-blue-950 flex items-center overflow-hidden py-24">
       {/* Fundo */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,197,94,0.18),transparent_30%),radial-gradient(circle_at_85%_80%,rgba(56,189,248,0.12),transparent_28%),linear-gradient(135deg,#172554_0%,#0f172a_100%)]"></div>
 

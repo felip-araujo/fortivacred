@@ -7,6 +7,7 @@ import MarketData from "../assets/Market";
 import Header from "../assets/Menu";
 import Results from "../assets/Results";
 import Services from "../assets/Services";
+import Seguros from "./Seguros";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
       <Results />
       <MarketData />
       <About />
-      <Services />
+      <Seguros />
       <BusinessModel />
       <Contato />
       <Footer />

@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 import "./index.css";
 
@@ -13,6 +16,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Home from "./pages/Home.jsx";
 import Fale from "./pages/Fale.jsx";
+import Seguros from "./pages/Seguros.jsx";
+import FalarWhatsapp from "./pages/FalarWhatsapp.jsx";
+
+import WhatsAppButton from "./components/WhatsAppButton.jsx";
 
 AOS.init({
   duration: 1000,
@@ -24,26 +31,30 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    children: [
-      {
-        index: true,
-      },
-    ],
   },
+
   {
     path: "/falar-com-consultor",
     element: <Fale />,
-    children: [
-      {
-        index: true,
-      },
-    ],
+  },
+
+  {
+    path: "/seguros",
+    element: <Seguros />,
+  },
+
+  {
+    path: "/falar-whatsapp",
+    element: <FalarWhatsapp />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+
+    {/* BOTÃO GLOBAL DO WHATSAPP */}
+    <WhatsAppButton />
 
     <ToastContainer
       position="top-right"
@@ -55,5 +66,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       draggable
       theme="colored"
     />
-  </React.StrictMode>,
+  </React.StrictMode>
 );
