@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <section className="relative min-h-screen bg-white flex items-center overflow-hidden">
+    <section id="inicio" className="relative min-h-screen bg-white flex items-center overflow-hidden">
       {/* Detalhes do fundo */}
       
 <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(34,197,94,0.14),transparent_28%),radial-gradient(circle_at_85%_35%,rgba(30,64,175,0.10),transparent_30%),linear-gradient(135deg,#ffffff_0%,#f8fafc_55%,#eef6ff_100%)]"></div>
