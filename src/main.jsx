@@ -19,7 +19,8 @@ import Fale from "./pages/Fale.jsx";
 import Seguros from "./pages/Seguros.jsx";
 import FalarWhatsapp from "./pages/FalarWhatsapp.jsx";
 
-import WhatsAppButton from "./components/WhatsAppButton.jsx";
+import WhatsAppButton from "./components/WhatsappButton.jsx";
+
 
 AOS.init({
   duration: 1000,
