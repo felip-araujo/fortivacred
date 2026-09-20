@@ -21,6 +21,10 @@ function Header() {
       link: "#modelo-negocio",
     },
     {
+      nome: "Seguros",
+      link: "/seguros",
+    },
+    {
       nome: "Contato",
       link: "#contato",
     },

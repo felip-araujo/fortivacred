@@ -16,10 +16,10 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Home from "./pages/Home.jsx";
 import Fale from "./pages/Fale.jsx";
-import Seguros from "./pages/Seguros.jsx";
 import FalarWhatsapp from "./pages/FalarWhatsapp.jsx";
 
 import WhatsAppButton from "./components/WhatsappButton.jsx";
+import SegurosPage from "./pages/SegurosPage.jsx";
 
 
 AOS.init({
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
 
   {
     path: "/seguros",
-    element: <Seguros />,
+    element: <SegurosPage />,
   },
 
   {
