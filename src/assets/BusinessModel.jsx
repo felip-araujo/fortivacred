@@ -12,24 +12,24 @@ import {
   faChevronDown,
   faArrowRight,
   faStar,
+  faLaptop,
+  faChartLine,
+  faStore,
 } from "@fortawesome/free-solid-svg-icons";
 
 function BusinessModel() {
   const [aberto, setAberto] = useState(null);
+  const [imagemBoxBank, setImagemBoxBank] = useState(0);
 
-  const models = [
+  const modelosCompactos = [
     {
       name: "Home",
       subtitle: "Modelo essencial",
       icon: faHouse,
-
       lucro: "70%",
       royalties: "Royalties Fixo",
-
       pagamento: "50% de entrada + 10x sem juros no boleto",
-
       acessos: "1 Acesso",
-
       destaque: false,
 
       itens: [
@@ -48,14 +48,10 @@ function BusinessModel() {
       name: "Office",
       subtitle: "Estrutura para equipes",
       icon: faBuilding,
-
       lucro: "75%",
       royalties: "Royalties Fixo",
-
       pagamento: "50% de entrada + 10x sem juros no boleto",
-
       acessos: "3 Acessos",
-
       destaque: true,
 
       itens: [
@@ -70,58 +66,79 @@ function BusinessModel() {
         "1 Curso de Microcrédito e gestão financeira",
         "Suporte Remoto",
         "Manual de Operação Simplificado",
-        "Kit de identidade Visual (banner interno, adesivos, agenda, calendários, etc)",
-        "Consultoria semestral: gestão de carteira de clientes, atualizações e gestão financeira",
-        "Relatórios Avançados: Performance e indicadores",
+        "Kit de identidade Visual",
+        "Consultoria semestral",
+        "Relatórios Avançados",
         "Sistema CRM para cadastro e comissionamento",
-        "Desconto personalizado em gráficas para impressões de materiais",
+        "Desconto personalizado em gráficas",
       ],
+    },
+  ];
+
+  const boxBank = {
+    name: "BoxBank",
+    lucro: "80%",
+    royalties: "Royalties Fixo",
+    acessos: "5 Acessos",
+
+    pagamento:
+      "35% no fechamento do contrato + 20% na entrega do container + 5x sem juros no boleto",
+
+    itens: [
+      "1 Container 20” em cessão onerosa, totalmente equipado com banheiro, mesas de atendimento, mobiliado, climatizado, personalizado, sinalização externa e equipamentos de informática",
+      "5 Acessos",
+      "Todas as linhas de crédito, clube de vantagens e telemedicina",
+      "Treinamento da Plataforma (Presencial e Híbrido)",
+      "Treinamento da Equipe",
+      "Treinamento avançado em crédito e compliance",
+      "02 Uniformes para 5 atendentes (2x ao ano) + camisas promocionais",
+      "1 Viagem/ano para reciclagem e cursos p/ 2 pessoas*",
+      "Material de Marketing Dedicado",
+      "1 milheiro mensal de material promocional",
+      "1 Curso de Microcrédito e gestão financeira",
+      "Suporte Remoto e técnico avançado prioritário",
+      "Manual de Operação Simplificado",
+      "Kit de identidade Visual",
+      "Consultoria semestral",
+      "Relatórios Avançados",
+      "Sistema completo de gestão com CRM, relatórios financeiros e integração bancária",
+      "Campanha de Inauguração",
+      "Suporte Contábil",
+      "Desconto personalizado em gráficas",
+      "Assessoria para análise do ponto comercial",
+    ],
+  };
+
+  const portfolioBoxBank = [
+    {
+      src: "container.png",
+      titulo: "Estrutura física BoxBank",
+      descricao:
+        "Container equipado, personalizado e preparado para iniciar a operação.",
+      tipo: "estrutura",
     },
 
     {
-      name: "BoxBank",
-      subtitle: "Operação completa",
-      icon: faBoxOpen,
+      src: "sistema-dashboard.png",
+      titulo: "Visão geral da operação",
+      descricao: "Acompanhamento da operação através da plataforma Fortiva.",
+      tipo: "sistema",
+    },
 
-      lucro: "80%",
-      royalties: "Royalties Fixo",
-
-      pagamento:
-        "35% no fechamento do contrato + 20% na entrega do container + 5x sem juros no boleto",
-
-      acessos: "5 Acessos",
-
-      destaque: false,
-
-      itens: [
-        '1 Container 20” em cessão onerosa, totalmente equipado com banheiro, mesas de atendimento, mobiliado, climatizado, personalizado, sinalização externa e equipamentos de informática (computadores e impressora)',
-        "5 Acessos",
-        "Todas as linhas de crédito, clube de vantagens e telemedicina",
-        "Treinamento da Plataforma (Presencial e Híbrido)",
-        "Treinamento da Equipe",
-        "Treinamento avançado em crédito e compliance",
-        "02 Uniformes para 5 atendentes (2x ao ano) + camisas promocionais",
-        "1 Viagem/ano para reciclagem e cursos p/ 2 pessoas*",
-        "Material de Marketing Dedicado (faixas, panfletos, etc)",
-        "1 milheiro mensal de material promocional",
-        "1 Curso de Microcrédito e gestão financeira",
-        "Suporte Remoto e técnico avançado prioritário",
-        "Manual de Operação Simplificado",
-        "Kit de identidade Visual (banner interno, adesivos, agenda, calendários, etc)",
-        "Consultoria semestral: gestão de carteira de clientes, atualizações e gestão financeira",
-        "Relatórios Avançados: Performance e indicadores",
-        "Sistema completo de gestão de módulos extras: CRM, relatórios financeiros e integração bancária",
-        "Campanha de Inauguração (marketing local, mídia digital e suporte em divulgação)",
-        "Suporte Contábil",
-        "Desconto personalizado em gráficas para impressões de materiais",
-        "Assessoria para análise do ponto comercial",
-      ],
+    {
+      src: "aulas.png",
+      titulo: "Videoaulas didáticas",
+      descricao:
+        "Sistema de treinamento completo para capacitar os colaboradores em vendas",
+      tipo: "sistema",
     },
   ];
 
   const toggleModelo = (index) => {
     setAberto(aberto === index ? null : index);
   };
+
+  const imagemAtual = portfolioBoxBank[imagemBoxBank];
 
   return (
     <section
@@ -135,38 +152,20 @@ function BusinessModel() {
       "
     >
       {/* FUNDO */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(34,197,94,0.16),transparent_30%),radial-gradient(circle_at_90%_80%,rgba(56,189,248,0.12),transparent_30%),linear-gradient(135deg,#172554_0%,#0f172a_100%)]" />
 
-      {/* GRID */}
-      <div className="absolute inset-0 opacity-[0.12] bg-[linear-gradient(to_right,rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.18)_1px,transparent_1px)] bg-[size:42px_42px]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(34,197,94,0.15),transparent_28%),radial-gradient(circle_at_90%_75%,rgba(59,130,246,0.12),transparent_28%),linear-gradient(135deg,#172554_0%,#0f172a_100%)]" />
 
-      {/* CÍRCULOS */}
-      <div className="absolute -top-52 left-1/2 -translate-x-1/2 w-[620px] h-[620px] border border-green-400/20 rounded-full" />
+      <div className="absolute inset-0 opacity-[0.1] bg-[linear-gradient(to_right,rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.18)_1px,transparent_1px)] bg-[size:42px_42px]" />
 
-      <div className="absolute -bottom-52 -right-52 w-[580px] h-[580px] border border-green-400/20 rounded-full" />
+      <div className="absolute -top-56 right-[-180px] w-[580px] h-[580px] border border-green-400/15 rounded-full" />
 
-      {/* PONTOS */}
-      <div className="absolute top-16 left-10 hidden md:grid grid-cols-4 gap-2">
-        {Array.from({ length: 16 }).map((_, i) => (
-          <span
-            key={i}
-            className="w-1.5 h-1.5 bg-green-400 rounded-full"
-          />
-        ))}
-      </div>
-
-      <div className="absolute bottom-20 right-16 hidden md:grid grid-cols-5 gap-2">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <span
-            key={i}
-            className="w-1.5 h-1.5 bg-green-400 rounded-full"
-          />
-        ))}
-      </div>
+      <div className="absolute -bottom-64 -left-52 w-[620px] h-[620px] border border-blue-400/15 rounded-full" />
 
       {/* CONTEÚDO */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12">
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         {/* CABEÇALHO */}
+
         <div className="max-w-3xl mb-16">
           <span
             data-aos="fade-up"
@@ -199,9 +198,9 @@ function BusinessModel() {
               leading-tight
             "
           >
-            Escolha seu modelo de{" "}
+            Um modelo para cada{" "}
             <span className="font-extrabold text-green-400">
-              negócio.
+              momento do negócio.
             </span>
           </h2>
 
@@ -216,74 +215,71 @@ function BusinessModel() {
               max-w-2xl
             "
           >
-            Conheça as estruturas disponíveis e encontre o modelo mais adequado
-            para iniciar sua operação com a Fortiva Cred.
+            Da operação mais compacta a uma estrutura física completa, conheça
+            as opções disponíveis para atuar com a Fortiva Cred.
           </p>
         </div>
 
-        {/* CARDS */}
+        {/* ========================================== */}
+        {/* HOME + OFFICE */}
+        {/* ========================================== */}
+
         <div
           className="
             grid
             grid-cols-1
-            lg:grid-cols-3
+            lg:grid-cols-2
             gap-7
-            items-start
+            max-w-5xl
           "
         >
-          {models.map((model, index) => {
+          {modelosCompactos.map((model, index) => {
             const estaAberto = aberto === index;
 
             return (
               <div
                 key={model.name}
                 data-aos="fade-up"
-                data-aos-delay={index * 120}
+                data-aos-delay={index * 100}
                 className={`
                   relative
                   overflow-hidden
                   rounded-[32px]
+                  bg-white
+                  border
                   transition-all
                   duration-500
-                  border
 
                   ${
                     model.destaque
-                      ? "bg-white border-green-400 shadow-2xl shadow-green-500/15 lg:-translate-y-4"
-                      : "bg-white/95 border-white/10 hover:-translate-y-2 hover:shadow-2xl"
+                      ? "border-green-400 shadow-2xl shadow-green-500/10"
+                      : "border-white/10"
                   }
                 `}
               >
-                {/* DESTAQUE OFFICE */}
                 {model.destaque && (
                   <div
                     className="
                       absolute
                       top-0
-                      left-0
-                      w-full
+                      right-0
                       bg-green-500
                       text-white
-                      text-xs
+                      text-[10px]
                       uppercase
-                      tracking-[0.2em]
+                      tracking-[0.18em]
                       font-bold
-                      text-center
+                      px-5
                       py-2
                     "
                   >
-                    Modelo em destaque
+                    Em destaque
                   </div>
                 )}
 
-                <div
-                  className={`
-                    p-7
-                    md:p-8
-                    ${model.destaque ? "pt-14" : ""}
-                  `}
-                >
-                  {/* ÍCONE */}
+                <div className="p-7 md:p-9">
+                  {/* TOPO */}
+
                   <div className="flex items-start justify-between">
                     <div
                       className="
@@ -304,87 +300,74 @@ function BusinessModel() {
                     <span
                       className="
                         text-xs
-                        font-bold
                         uppercase
-                        tracking-[0.15em]
+                        tracking-[0.16em]
                         text-slate-400
+                        font-bold
                       "
                     >
                       0{index + 1}
                     </span>
                   </div>
 
-                  {/* TÍTULO */}
                   <div className="mt-7">
-                    <p className="text-sm text-slate-500 font-medium">
-                      {model.subtitle}
-                    </p>
+                    <p className="text-sm text-slate-500">{model.subtitle}</p>
 
-                    <h3
-                      className="
-                        mt-1
-                        text-4xl
-                        font-extrabold
-                        text-blue-950
-                      "
-                    >
+                    <h3 className="mt-1 text-4xl font-extrabold text-blue-950">
                       {model.name}
                     </h3>
                   </div>
 
-                  {/* LUCRO */}
+                  {/* INFORMAÇÕES PRINCIPAIS */}
+
                   <div
                     className="
-                      mt-8
-                      rounded-2xl
-                      bg-blue-950
-                      p-5
-                      text-white
+                      mt-7
+                      grid
+                      grid-cols-2
+                      gap-3
                     "
                   >
-                    <div className="flex items-center gap-4">
-                      <div
-                        className="
-                          w-11
-                          h-11
-                          rounded-full
-                          bg-green-500
-                          flex
-                          items-center
-                          justify-center
-                        "
-                      >
-                        <FontAwesomeIcon icon={faPercent} />
-                      </div>
+                    <div
+                      className="
+                        rounded-2xl
+                        bg-blue-950
+                        p-5
+                        text-white
+                      "
+                    >
+                      <p className="text-xs text-slate-300">Participação</p>
 
-                      <div>
-                        <p className="text-xs text-slate-300">
-                          Participação no resultado
-                        </p>
-
-                        <p className="text-2xl font-extrabold">
-                          Lucro de{" "}
-                          <span className="text-green-400">
-                            {model.lucro}
-                          </span>
-                        </p>
-                      </div>
+                      <p className="mt-1 text-2xl font-extrabold text-green-400">
+                        {model.lucro}
+                      </p>
                     </div>
 
-                    <div className="mt-4 pt-4 border-t border-white/10">
-                      <p className="text-sm text-slate-300">
-                        {model.royalties}
+                    <div
+                      className="
+                        rounded-2xl
+                        bg-slate-50
+                        border
+                        border-slate-100
+                        p-5
+                      "
+                    >
+                      <p className="text-xs text-slate-500">Plataforma</p>
+
+                      <p className="mt-1 text-lg font-extrabold text-blue-950">
+                        {model.acessos}
                       </p>
                     </div>
                   </div>
 
                   {/* PAGAMENTO */}
+
                   <div
                     className="
                       mt-6
                       flex
-                      items-start
                       gap-4
+                      items-start
                     "
                   >
                     <div
@@ -406,10 +389,10 @@ function BusinessModel() {
                     <div>
                       <p
                         className="
-                          text-xs
-                          text-slate-500
+                          text-[11px]
                           uppercase
-                          tracking-wide
+                          tracking-[0.15em]
+                          text-slate-400
                           font-bold
                         "
                       >
@@ -420,9 +403,9 @@ function BusinessModel() {
                         className="
                           mt-1
                           text-sm
-                          text-blue-950
-                          font-bold
                           leading-relaxed
+                          font-bold
+                          text-blue-950
                         "
                       >
                         {model.pagamento}
@@ -430,71 +413,23 @@ function BusinessModel() {
                     </div>
                   </div>
 
-                  {/* ACESSOS */}
-                  <div
-                    className="
-                      mt-6
-                      py-4
-                      border-y
-                      border-slate-100
-                      flex
-                      items-center
-                      justify-between
-                    "
-                  >
-                    <span className="text-sm text-slate-500">
-                      Plataforma Fortiva
-                    </span>
+                  {/* BENEFÍCIOS */}
 
-                    <span
-                      className="
-                        bg-green-500/10
-                        text-green-700
-                        text-sm
-                        font-bold
-                        px-3
-                        py-1.5
-                        rounded-full
-                      "
-                    >
-                      {model.acessos}
-                    </span>
-                  </div>
-
-                  {/* PRIMEIROS BENEFÍCIOS */}
-                  <div className="mt-6 space-y-3">
+                  <div className="mt-7 space-y-3">
                     {model.itens.slice(0, 4).map((item, itemIndex) => (
-                      <div
-                        key={itemIndex}
-                        className="
-                          flex
-                          items-start
-                          gap-3
-                        "
-                      >
+                      <div key={itemIndex} className="flex items-start gap-3">
                         <FontAwesomeIcon
                           icon={faCircleCheck}
-                          className="
-                            text-green-500
-                            mt-1
-                            shrink-0
-                          "
+                          className="text-green-500 mt-1 shrink-0"
                         />
 
-                        <p
-                          className="
-                            text-sm
-                            text-slate-600
-                            leading-relaxed
-                          "
-                        >
+                        <p className="text-sm text-slate-600 leading-relaxed">
                           {item}
                         </p>
                       </div>
                     ))}
                   </div>
 
-                  {/* RESTANTE DOS BENEFÍCIOS */}
                   <div
                     className={`
                       grid
@@ -513,28 +448,14 @@ function BusinessModel() {
                         {model.itens.slice(4).map((item, itemIndex) => (
                           <div
                             key={itemIndex}
-                            className="
-                              flex
-                              items-start
-                              gap-3
-                            "
+                            className="flex items-start gap-3"
                           >
                             <FontAwesomeIcon
                               icon={faCircleCheck}
-                              className="
-                                text-green-500
-                                mt-1
-                                shrink-0
-                              "
+                              className="text-green-500 mt-1 shrink-0"
                             />
 
-                            <p
-                              className="
-                                text-sm
-                                text-slate-600
-                                leading-relaxed
-                              "
-                            >
+                            <p className="text-sm text-slate-600 leading-relaxed">
                               {item}
                             </p>
                           </div>
@@ -543,53 +464,45 @@ function BusinessModel() {
                     </div>
                   </div>
 
-                  {/* VER MAIS */}
-                  {model.itens.length > 4 && (
-                    <button
-                      type="button"
-                      onClick={() => toggleModelo(index)}
-                      className="
-                        mt-6
-                        w-full
-                        flex
-                        items-center
-                        justify-center
-                        gap-2
-                        text-blue-950
-                        font-bold
-                        text-sm
-                        hover:text-green-600
-                        transition-colors
-                      "
-                    >
-                      {estaAberto
-                        ? "Ver menos"
-                        : `Ver tudo que está incluso (${model.itens.length})`}
+                  <button
+                    type="button"
+                    onClick={() => toggleModelo(index)}
+                    className="
+                      mt-6
+                      flex
+                      items-center
+                      gap-2
+                      text-sm
+                      font-bold
+                      text-blue-950
+                      hover:text-green-600
+                      transition-colors
+                    "
+                  >
+                    {estaAberto
+                      ? "Ver menos"
+                      : `Ver tudo que está incluso (${model.itens.length})`}
 
-                      <FontAwesomeIcon
-                        icon={faChevronDown}
-                        className={`
-                          transition-transform
-                          duration-300
+                    <FontAwesomeIcon
+                      icon={faChevronDown}
+                      className={`
+                        transition-transform
+                        ${estaAberto ? "rotate-180" : ""}
+                      `}
+                    />
+                  </button>
 
-                          ${estaAberto ? "rotate-180" : ""}
-                        `}
-                      />
-                    </button>
-                  )}
-
-                  {/* CTA PARA O FORMULÁRIO */}
                   <a
                     href="#contato"
                     className="
                       mt-8
                       w-full
+                      rounded-full
                       bg-green-500
                       text-white
                       font-bold
                       py-4
                       px-6
-                      rounded-full
                       flex
                       items-center
                       justify-center
@@ -597,17 +510,10 @@ function BusinessModel() {
                       hover:bg-green-600
                       hover:-translate-y-1
                       transition-all
-                      duration-300
-                      shadow-lg
-                      shadow-green-500/20
                     "
                   >
                     Quero conhecer o {model.name}
-
-                    <FontAwesomeIcon
-                      icon={faArrowRight}
-                      className="text-sm"
-                    />
+                    <FontAwesomeIcon icon={faArrowRight} />
                   </a>
                 </div>
               </div>
@@ -615,7 +521,697 @@ function BusinessModel() {
           })}
         </div>
 
-        {/* INFORMAÇÃO FINAL */}
+        {/* ========================================== */}
+        {/* DIVISOR */}
+        {/* ========================================== */}
+
+        <div
+          data-aos="fade-up"
+          className="
+            mt-24
+            mb-10
+            flex
+            items-center
+            gap-5
+          "
+        >
+          <div className="h-px flex-1 bg-white/10" />
+
+          <span
+            className="
+              text-xs
+              uppercase
+              tracking-[0.25em]
+              font-bold
+              text-green-400
+            "
+          >
+            Experiência completa
+          </span>
+
+          <div className="h-px flex-1 bg-white/10" />
+        </div>
+
+        {/* ========================================== */}
+        {/* BOXBANK */}
+        {/* ========================================== */}
+
+        <div
+          data-aos="fade-up"
+          className="
+            relative
+            overflow-hidden
+            rounded-[40px]
+            bg-white
+            border
+            border-green-400/30
+            shadow-2xl
+            shadow-black/20
+          "
+        >
+          {/* CABEÇALHO BOXBANK */}
+
+          <div
+            className="
+              bg-blue-950
+              px-7
+              md:px-10
+              py-9
+              md:py-12
+              grid
+              grid-cols-1
+              lg:grid-cols-[1fr_auto]
+              gap-8
+              items-end
+            "
+          >
+            <div>
+              <div
+                className="
+                  flex
+                  items-center
+                  gap-4
+                "
+              >
+                <div
+                  className="
+                    w-14
+                    h-14
+                    rounded-2xl
+                    bg-green-500
+                    text-white
+                    flex
+                    items-center
+                    justify-center
+                    text-xl
+                  "
+                >
+                  <FontAwesomeIcon icon={faBoxOpen} />
+                </div>
+
+                <div>
+                  <p
+                    className="
+                      text-green-400
+                      text-xs
+                      uppercase
+                      tracking-[0.2em]
+                      font-bold
+                    "
+                  >
+                    Modelo 03
+                  </p>
+
+                  <h3
+                    className="
+                      text-4xl
+                      md:text-5xl
+                      font-extrabold
+                      text-white
+                    "
+                  >
+                    BoxBank
+                  </h3>
+                </div>
+              </div>
+
+              <p
+                className="
+                  mt-6
+                  text-slate-300
+                  text-lg
+                  leading-relaxed
+                  max-w-2xl
+                "
+              >
+                Uma estrutura completa para quem busca uma operação física,
+                tecnológica e preparada para oferecer o ecossistema Fortiva em
+                uma unidade própria.
+              </p>
+            </div>
+
+            <div
+              className="
+                flex
+                flex-wrap
+                gap-3
+              "
+            >
+              <div
+                className="
+                  bg-white/5
+                  border
+                  border-white/10
+                  rounded-2xl
+                  px-5
+                  py-4
+                "
+              >
+                <p className="text-xs text-slate-400">Participação</p>
+
+                <p className="text-2xl font-extrabold text-green-400">
+                  {boxBank.lucro}
+                </p>
+              </div>
+
+              <div
+                className="
+                  bg-white/5
+                  border
+                  border-white/10
+                  rounded-2xl
+                  px-5
+                  py-4
+                "
+              >
+                <p className="text-xs text-slate-400">Plataforma</p>
+
+                <p className="text-lg font-extrabold text-white">
+                  {boxBank.acessos}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* ========================================== */}
+          {/* MINI PORTFÓLIO */}
+          {/* ========================================== */}
+
+          <div
+            className="
+              p-6
+              md:p-10
+              grid
+              grid-cols-1
+              xl:grid-cols-[1.2fr_0.8fr]
+              gap-10
+            "
+          >
+            {/* GALERIA */}
+
+            <div>
+              <div
+                className="
+                  relative
+                  overflow-hidden
+                  rounded-[28px]
+                  bg-slate-100
+                  border
+                  border-slate-200
+                  min-h-[440px]
+                  md:min-h-[560px]
+                "
+              >
+                <img
+                  src={imagemAtual.src}
+                  alt={imagemAtual.titulo}
+                  className={`
+                    absolute
+                    inset-0
+                    w-full
+                    h-full
+
+                    ${
+                      imagemAtual.tipo === "sistema"
+                        ? "object-contain p-4 md:p-7"
+                        : "object-cover"
+                    }
+                  `}
+                />
+
+                <div
+                  className="
+                    absolute
+                    inset-x-0
+                    bottom-0
+                    h-[180px]
+                    bg-gradient-to-t
+                    from-blue-950/90
+                    via-blue-950/50
+                    to-transparent
+                    pointer-events-none
+                  "
+                />
+
+                <div
+                  className="
+                    absolute
+                    bottom-0
+                    left-0
+                    right-0
+                    z-10
+                    p-6
+                    md:p-8
+                  "
+                >
+                  <span
+                    className="
+                      inline-flex
+                      bg-green-500
+                      text-white
+                      text-[10px]
+                      uppercase
+                      tracking-[0.18em]
+                      font-bold
+                      px-3
+                      py-1.5
+                      rounded-full
+                    "
+                  >
+                    {imagemAtual.tipo === "estrutura"
+                      ? "Estrutura física"
+                      : "Sistema Fortiva"}
+                  </span>
+
+                  <h4
+                    className="
+                      mt-3
+                      text-white
+                      text-xl
+                      md:text-2xl
+                      font-extrabold
+                    "
+                  >
+                    {imagemAtual.titulo}
+                  </h4>
+
+                  <p
+                    className="
+                      mt-2
+                      text-sm
+                      md:text-base
+                      text-slate-200
+                      max-w-xl
+                    "
+                  >
+                    {imagemAtual.descricao}
+                  </p>
+                </div>
+              </div>
+
+              {/* MINIATURAS */}
+
+              <div
+                className="
+                  mt-4
+                  grid
+                  grid-cols-2
+                  md:grid-cols-4
+                  gap-3
+                "
+              >
+                {portfolioBoxBank.map((imagem, index) => (
+                  <button
+                    key={imagem.src}
+                    type="button"
+                    onClick={() => setImagemBoxBank(index)}
+                    className={`
+                      relative
+                      overflow-hidden
+                      rounded-2xl
+                      h-[100px]
+                      md:h-[115px]
+                      border-2
+                      transition-all
+                      duration-300
+
+                      ${
+                        imagemBoxBank === index
+                          ? "border-green-500 shadow-lg shadow-green-500/15"
+                          : "border-slate-200 opacity-70 hover:opacity-100"
+                      }
+                    `}
+                  >
+                    <img
+                      src={imagem.src}
+                      alt={imagem.titulo}
+                      className={`
+                        w-full
+                        h-full
+
+                        ${
+                          imagem.tipo === "sistema"
+                            ? "object-contain bg-slate-50 p-2"
+                            : "object-cover"
+                        }
+                      `}
+                    />
+
+                    {imagemBoxBank === index && (
+                      <div
+                        className="
+                          absolute
+                          inset-0
+                          ring-2
+                          ring-inset
+                          ring-green-500
+                          rounded-2xl
+                        "
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* INFORMAÇÕES BOXBANK */}
+
+            <div>
+              <span
+                className="
+                  text-green-600
+                  text-xs
+                  uppercase
+                  tracking-[0.18em]
+                  font-extrabold
+                "
+              >
+                Estrutura + tecnologia
+              </span>
+
+              <h4
+                className="
+                  mt-3
+                  text-3xl
+                  md:text-4xl
+                  font-extrabold
+                  text-blue-950
+                  leading-tight
+                "
+              >
+                Muito além de uma unidade física.
+              </h4>
+
+              <p
+                className="
+                  mt-5
+                  text-slate-600
+                  leading-relaxed
+                "
+              >
+                O BoxBank combina uma estrutura física personalizada com
+                ferramentas de gestão, atendimento e acompanhamento da operação.
+              </p>
+
+              {/* 3 DESTAQUES */}
+
+              <div className="mt-8 space-y-4">
+                <div
+                  className="
+                    flex
+                    gap-4
+                    p-5
+                    rounded-2xl
+                    bg-slate-50
+                    border
+                    border-slate-100
+                  "
+                >
+                  <div
+                    className="
+                      w-11
+                      h-11
+                      rounded-xl
+                      bg-green-500/10
+                      text-green-600
+                      flex
+                      items-center
+                      justify-center
+                      shrink-0
+                    "
+                  >
+                    <FontAwesomeIcon icon={faStore} />
+                  </div>
+
+                  <div>
+                    <h5 className="font-extrabold text-blue-950">
+                      Unidade física completa
+                    </h5>
+
+                    <p className="mt-1 text-sm text-slate-500 leading-relaxed">
+                      Container equipado, climatizado, mobiliado e personalizado
+                      para a operação.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  className="
+                    flex
+                    gap-4
+                    p-5
+                    rounded-2xl
+                    bg-slate-50
+                    border
+                    border-slate-100
+                  "
+                >
+                  <div
+                    className="
+                      w-11
+                      h-11
+                      rounded-xl
+                      bg-green-500/10
+                      text-green-600
+                      flex
+                      items-center
+                      justify-center
+                      shrink-0
+                    "
+                  >
+                    <FontAwesomeIcon icon={faLaptop} />
+                  </div>
+
+                  <div>
+                    <h5 className="font-extrabold text-blue-950">
+                      Sistema de Treinamento
+                    </h5>
+
+                    <p className="mt-1 text-sm text-slate-500 leading-relaxed">
+                      Sistema de treinamento completo para capacitar os
+                      colaboradores em vendas, atendimento e em todos os
+                      processos das principais linhas de crédito.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  className="
+                    flex
+                    gap-4
+                    p-5
+                    rounded-2xl
+                    bg-slate-50
+                    border
+                    border-slate-100
+                  "
+                >
+                  <div
+                    className="
+                      w-11
+                      h-11
+                      rounded-xl
+                      bg-green-500/10
+                      text-green-600
+                      flex
+                      items-center
+                      justify-center
+                      shrink-0
+                    "
+                  >
+                    <FontAwesomeIcon icon={faChartLine} />
+                  </div>
+
+                  <div>
+                    <h5 className="font-extrabold text-blue-950">
+                      Operação acompanhada
+                    </h5>
+
+                    <p className="mt-1 text-sm text-slate-500 leading-relaxed">
+                      Treinamentos, suporte prioritário e consultoria para
+                      acompanhar o desenvolvimento da operação.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* PAGAMENTO */}
+
+              <div
+                className="
+                  mt-7
+                  p-5
+                  rounded-2xl
+                  bg-blue-950
+                  text-white
+                "
+              >
+                <div className="flex gap-4 items-start">
+                  <div
+                    className="
+                      w-11
+                      h-11
+                      rounded-full
+                      bg-green-500
+                      flex
+                      items-center
+                      justify-center
+                      shrink-0
+                    "
+                  >
+                    <FontAwesomeIcon icon={faCreditCard} />
+                  </div>
+
+                  <div>
+                    <p className="text-xs text-slate-400">Forma de pagamento</p>
+
+                    <p className="mt-1 text-sm font-bold leading-relaxed">
+                      {boxBank.pagamento}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ========================================== */}
+          {/* BENEFÍCIOS BOXBANK */}
+          {/* ========================================== */}
+
+          <div
+            className="
+              px-6
+              md:px-10
+              pb-10
+            "
+          >
+            <div
+              className="
+                border-t
+                border-slate-100
+                pt-8
+              "
+            >
+              <div
+                className="
+                  flex
+                  flex-col
+                  md:flex-row
+                  md:items-center
+                  md:justify-between
+                  gap-4
+                  mb-6
+                "
+              >
+                <div>
+                  <p
+                    className="
+                      text-xs
+                      uppercase
+                      tracking-[0.18em]
+                      font-bold
+                      text-green-600
+                    "
+                  >
+                    O que está incluso
+                  </p>
+
+                  <h4
+                    className="
+                      mt-1
+                      text-2xl
+                      font-extrabold
+                      text-blue-950
+                    "
+                  >
+                    Estrutura completa para operar.
+                  </h4>
+                </div>
+
+                <span
+                  className="
+                    bg-green-500/10
+                    text-green-700
+                    text-sm
+                    font-bold
+                    px-4
+                    py-2
+                    rounded-full
+                  "
+                >
+                  {boxBank.itens.length} itens
+                </span>
+              </div>
+
+              <div
+                className="
+                  grid
+                  grid-cols-1
+                  md:grid-cols-2
+                  lg:grid-cols-3
+                  gap-x-8
+                  gap-y-4
+                "
+              >
+                {boxBank.itens.map((item, index) => (
+                  <div
+                    key={index}
+                    className="
+                      flex
+                      items-start
+                      gap-3
+                    "
+                  >
+                    <FontAwesomeIcon
+                      icon={faCircleCheck}
+                      className="text-green-500 mt-1 shrink-0"
+                    />
+
+                    <p
+                      className="
+                        text-sm
+                        text-slate-600
+                        leading-relaxed
+                      "
+                    >
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href="#contato"
+                className="
+                  mt-9
+                  inline-flex
+                  items-center
+                  justify-center
+                  gap-3
+                  rounded-full
+                  bg-green-500
+                  text-white
+                  font-bold
+                  py-4
+                  px-8
+                  hover:bg-green-600
+                  hover:-translate-y-1
+                  transition-all
+                  shadow-lg
+                  shadow-green-500/20
+                "
+              >
+                Quero conhecer o BoxBank
+                <FontAwesomeIcon icon={faArrowRight} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ========================================== */}
+        {/* FECHAMENTO */}
+        {/* ========================================== */}
+
         <div
           data-aos="fade-up"
           className="
@@ -625,10 +1221,7 @@ function BusinessModel() {
             text-center
           "
         >
-          <FontAwesomeIcon
-            icon={faStar}
-            className="text-green-400"
-          />
+          <FontAwesomeIcon icon={faStar} className="text-green-400" />
 
           <p
             className="
@@ -637,12 +1230,10 @@ function BusinessModel() {
               leading-relaxed
             "
           >
-            Converse com nossa equipe para conhecer mais detalhes sobre os
-            modelos de implantação e identificar a estrutura mais adequada para
-            sua operação.
+            Converse com nossa equipe para conhecer os detalhes de cada modelo e
+            entender qual estrutura faz mais sentido para sua operação.
           </p>
 
-          {/* CTA FINAL PARA O FORMULÁRIO */}
           <a
             href="#contato"
             className="
@@ -658,7 +1249,6 @@ function BusinessModel() {
             "
           >
             Quero receber mais informações
-
             <FontAwesomeIcon
               icon={faArrowRight}
               className="
