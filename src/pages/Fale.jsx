@@ -1,5 +1,6 @@
 function Fale() {
-  const whatsappNumber = "11922077141";
+  const whatsappNumber = "558002998000";
+  
 
   const mensagem =
     "Olá! Acabei de preencher o formulário no site da Fortiva Cred e gostaria de falar com um consultor.";
