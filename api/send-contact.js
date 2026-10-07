@@ -9,13 +9,32 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { nome, email, investimento } = req.body || {};
+    const { nome, email, whatsapp, investimento } = req.body || {};
 
-    if (!nome || !email || !investimento) {
+    if (!nome || !email || !investimento || typeof whatsapp !== "string" || !whatsapp.trim()) {
       return res.status(400).json({
         success: false,
         message: "Todos os campos são obrigatórios.",
       });
+    }
+
+    const whatsappDigits = whatsapp.replace(/\D/g, "");
+    if (!/^\+?[\d\s().-]+$/.test(whatsapp.trim()) || !/^(?:55)?[1-9]{2}9\d{8}$/.test(whatsappDigits)) {
+      return res.status(400).json({
+        success: false,
+        message: "Digite um WhatsApp válido com DDD.",
+      });
+    }
+
+    const destinatarios = [...new Set(
+      (process.env.CONTACT_EMAIL || "")
+        .split(/[,;\n]+/)
+        .map((endereco) => endereco.trim())
+        .filter(Boolean),
+    )];
+
+    if (!destinatarios.length || destinatarios.some((endereco) => !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(endereco))) {
+      throw new Error("Configure CONTACT_EMAIL com os e-mails dos destinatários.");
     }
 
     const transporter = nodemailer.createTransport({
@@ -38,7 +57,7 @@ export default async function handler(req, res) {
     const info = await transporter.sendMail({
       from: `"Site Fortiva Cred" <${process.env.SMTP_USER}>`,
 
-      to: process.env.CONTACT_EMAIL,
+      to: destinatarios,
 
       replyTo: email,
 
@@ -49,6 +68,7 @@ Novo cadastro recebido pelo site da Fortiva Cred.
 
 Nome: ${nome}
 E-mail: ${email}
+WhatsApp: ${whatsapp.trim()}
 Investimento disponível: ${investimento}
       `,
 
@@ -97,6 +117,11 @@ Investimento disponível: ${investimento}
             </p>
 
             <p>
+              <strong>WhatsApp:</strong><br />
+              ${whatsapp.trim()}
+            </p>
+
+            <p>
               <strong>Investimento disponível:</strong><br />
               ${investimento}
             </p>
@@ -106,7 +131,7 @@ Investimento disponível: ${investimento}
     });
 
     console.log("========== EMAIL ==========");
-    console.log("Destinatário:", process.env.CONTACT_EMAIL);
+    console.log("Destinatários:", destinatarios);
     console.log("Message ID:", info.messageId);
     console.log("Accepted:", info.accepted);
     console.log("Rejected:", info.rejected);

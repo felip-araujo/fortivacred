@@ -10,6 +10,7 @@ function Contato() {
   const [form, setForm] = useState({
     nome: "",
     email: "",
+    whatsapp: "",
     investimento: "",
   });
 
@@ -42,6 +43,12 @@ function Contato() {
       return false;
     }
 
+    const whatsappDigits = form.whatsapp.replace(/\D/g, "");
+    if (!/^\+?[\d\s().-]+$/.test(form.whatsapp.trim()) || !/^(?:55)?[1-9]{2}9\d{8}$/.test(whatsappDigits)) {
+      toast.warning("Digite um WhatsApp válido com DDD, por exemplo: (11) 99999-9999.");
+      return false;
+    }
+
     if (!form.investimento) {
       toast.warning("Selecione o valor de investimento disponível.");
       return false;
@@ -65,6 +72,7 @@ function Contato() {
       await enviarContato({
         nome: form.nome.trim(),
         email: form.email.trim(),
+        whatsapp: form.whatsapp.trim(),
         investimento: form.investimento,
       });
 
@@ -79,6 +87,7 @@ function Contato() {
       setForm({
         nome: "",
         email: "",
+        whatsapp: "",
         investimento: "",
       });
 
@@ -355,6 +364,26 @@ function Contato() {
                   disabled:bg-slate-50
                   disabled:cursor-not-allowed
                 "
+              />
+            </div>
+
+            {/* WHATSAPP */}
+            <div>
+              <label htmlFor="whatsapp" className="block mb-2 text-sm font-bold text-blue-950">
+                WhatsApp
+              </label>
+              <input
+                type="tel"
+                id="whatsapp"
+                name="whatsapp"
+                value={form.whatsapp}
+                onChange={handleChange}
+                placeholder="(11) 99999-9999"
+                required
+                disabled={enviando}
+                autoComplete="tel"
+                maxLength={25}
+                className="w-full h-14 px-5 rounded-2xl border border-slate-200 bg-white text-blue-950 placeholder:text-slate-400 outline-none transition-all duration-300 focus:border-green-500 focus:ring-4 focus:ring-green-500/10 disabled:bg-slate-50 disabled:cursor-not-allowed"
               />
             </div>
 
